@@ -1,0 +1,28 @@
+.singleFooter p{
+    font-size: .8125rem;
+    line-height: 1.25;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.singleFooter li{
+    line-height: 1.45;
+    font-size: .688rem;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+.singleFooter li:hover{
+    text-decoration: underline;
+}
+.mainFooter{
+    
+    width: 960px;
+    margin:  0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    grid-gap: 16px;
+}
+.mainFooter p{
+    line-height: 1.2307692308;
+    font-size: .8125rem;
+}

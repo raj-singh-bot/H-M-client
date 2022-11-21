@@ -1,0 +1,34 @@
+.bannerSection{
+    /* padding: 0 100px; */
+    text-align: center;
+    position: relative;
+    width: 960px;
+    height: 640px;
+
+    margin: 0 auto 24px;
+
+}
+.bannerSection img{
+    /* width: 960px;
+    height: 640px; */
+    width: 100%;
+}
+.content{
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+.content p{ 
+    color: #fff;
+    margin-bottom: 15px;
+}
+.commonBtn{
+    background-color: #fff;
+    font-size: .8125rem;
+    padding: 8px;
+    color: #000;
+    border: 1px solid #fff;
+    font-family: HM Sans Regular;
+  }

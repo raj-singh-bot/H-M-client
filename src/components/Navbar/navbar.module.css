@@ -1,0 +1,51 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:28px 16px 16px;
+}
+.navbar ul{
+    display: flex;
+}
+.navbar ul li{
+    padding: 6px 8px;
+    display: flex;
+}
+.navbar ul li svg{
+    width: 20px;
+    padding-right: 4px;
+}
+.categoryHeader{
+    cursor: pointer;
+}
+.subCategoryHeader{
+    padding-top: 20px;
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 17%;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+/* .singleCategory{
+    position: relative;
+} */
+.singleCategory:hover .subCategoryHeader{
+    display: flex;
+}
+.categoryheader{
+    display: flex;
+    justify-content: end;
+    /* width: 60%; */
+    padding: 30px 30px;
+}
+
+.singleList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 60vw;
+    background-color: #fff;
+    /* text-align: center; */
+}

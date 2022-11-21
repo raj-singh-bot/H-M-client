@@ -1,0 +1,41 @@
+.mainSec{
+    width: 960px;
+    margin:  0 auto;
+    text-align: center;
+    padding: 40px 0;
+}
+.mainSec h6{
+    color: #000;
+}
+.mainSec p{
+    line-height: 1.45;
+    font-size: .688rem;
+}
+.magList{
+    display: flex;
+}
+.content{
+    padding: 16px 16px;
+    /* background-color: #fff; */
+}
+.content span{
+    line-height: 1.2307692308;
+    font-size: .8125rem;
+}
+.content p{
+    line-height: 1.25;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.content a{
+    /* margin-top: 64px; */
+    display: block;
+}
+.subContent{
+    padding: 16px 16px;
+    background-color: #fff;
+    height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
