@@ -6,37 +6,33 @@ import product from './product.module.css';
 import Navbar from 'react-bootstrap/Navbar';
 import { Nav, NavDropdown } from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux'
-import { setProducts } from '../../store/ProductSlice';
+import { fetchProducts, getStatus, getProducts } from '../../store/ProductSlice';
+import { AppDispatch } from '../../store/store';
 
 
 const ProductPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [productsData, setProductsData] = useState([])
+    // const [productsData, setProductsData] = useState([])
     const [sortCheck, setSortCheck] = useState("Recommended");
-    const dispatch = useDispatch()
-    const products = useSelector((state:any) => state.product);
-    // let category =searchParams.get('category')
+    const dispatch = useDispatch<AppDispatch>()
+    const status = useSelector(getStatus);
+    const products = useSelector(getProducts);
 
-    const fetchProducts = async() => {
-        const { data } = await axios.get(`https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=in&lang=en&categories=${searchParams.get('category')}&currentpage=0&pagesize=30`,{
-            headers: {
-                'X-RapidAPI-Key': '631b0ccce6msh16e056e428644dcp1662f7jsn35b6e04f85f9'
-            }
-        });
-        setProductsData(data.results)
-        console.log(data.results)
-        dispatch(setProducts(data.results))
-    }
-
+    
     useEffect(() => {
-        // fetchProducts()
-    },[])
-   
+        let code = searchParams.get('slug');
+        if(code !== null && status === 'idle'){
+            console.log(code, 'slug')
+            dispatch(fetchProducts(code))
+        }
+    },[status])
+
+    console.log(products)
 
     const handleSort = (e:any) => {
         setSortCheck(e.target.value)
     }
-    console.log(sortCheck)
+    // console.log(sortCheck)
 const radioSort = ["Recommended", "Newest", "Lowest Price", "Highest Price"];
   return (
     <div style={{padding: '0 32px'}}>
@@ -48,9 +44,9 @@ const radioSort = ["Recommended", "Newest", "Lowest Price", "Highest Price"];
                 <Nav>
                     <NavDropdown title="SORT BY" id="basic-nav-dropdown">
                         <ul className={product.sortList}>
-                          {radioSort.map((e) => {
+                          {radioSort.map((e, index) => {
                             return(
-                                <li className={sortCheck == e ? `${product.activeBg}` : ''}>
+                                <li className={sortCheck == e ? `${product.activeBg}` : ''} key={index}>
                                     <input type='radio' name='sort' value={e} style={{marginRight: '10px'}} 
                                     checked={sortCheck == e}
                                     onChange={handleSort}/>{e}
@@ -69,9 +65,9 @@ const radioSort = ["Recommended", "Newest", "Lowest Price", "Highest Price"];
             <div className={product.mainProduct}>
                 
                 <div className={product.productList}>
-                    {productsData?.map((item, i) => {
+                    {products.products?.map((item:any, i:any) => {
                         return(
-                            <SingleProduct data={item} />
+                            <SingleProduct data={item} key={i}/>
                         )
                     })
                     }

@@ -9,8 +9,8 @@ interface subCategory{
 }
 
 interface Category{
-    CatName: string,
-    CategoriesArray: Array<subCategory>,
+    name: string,
+    children: Array<subCategory>,
 }
 
 const CategoryNavbar = () => {
@@ -20,12 +20,12 @@ const CategoryNavbar = () => {
     //    return data
     // }
     useEffect(() => {
-        axios.get('https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/categories/list?country=in',{
-        headers: {
-            'X-RapidAPI-Key': '631b0ccce6msh16e056e428644dcp1662f7jsn35b6e04f85f9'
-        }
+        axios.get('http://localhost:8000/category/getcategory',{
+        // headers: {
+        //     '': '631b0ccce6msh16e056e428644dcp1662f7jsn35b6e04f85f9'
+        // }
        })
-       .then((res) => setData(res.data))
+       .then((res) => setData(res.data.categoryList))
     //    setData(data)
     },[])
     console.log(data)
@@ -36,10 +36,10 @@ const CategoryNavbar = () => {
             return(
                 <div className={style.singleCategory} key={index}>
                     <div >
-                        <p className={style.categoryHeader} >{category.CatName}</p>
+                        <p className={style.categoryHeader} >{category.name}</p>
                     </div>
                     <div>
-                        <Subcategory data={category.CategoriesArray} />
+                        <Subcategory data={category.children} />
                         {/* <div>
                         {category.CategoriesArray.map((single) => {
                             return(

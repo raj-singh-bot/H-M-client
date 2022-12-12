@@ -1,0 +1,205 @@
+.menuHeader{
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-bottom: 1px solid #cecece;
+    box-shadow: 0 2px 2px -2px #333;
+}
+.menuHeader ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menuHeader > ul{
+    display: flex;
+    margin: 0 50px;
+    position: relative;
+}
+.menuHeader > ul > li > span{
+    display: block;
+    line-height: 40px;
+    cursor: pointer;
+    padding: 0 20px;
+    font-size: 14px;
+}
+.menuHeader > ul > li > span:hover{
+    color: #2874f0;
+}
+.menuHeader > ul > li > ul{
+    position: absolute;
+    background: #fff;
+    left: 0;
+    right: 0;
+    display: none;
+    border: 1px solid #cecece;
+    z-index: 111111;
+}
+.menuHeader > ul > li:hover ul{
+    display: block;
+}
+.menuHeader > ul > li > ul > li{
+    margin: 0 20px;
+    min-width: 150px;
+}
+.menuHeader > ul > li > ul > li{
+    float: left;
+}
+.menuHeader > ul > li > ul > li > a{
+    font-weight: bold;
+    display: block;
+}
+.menuHeader > ul > li > ul > li a{
+    padding: 3px 0;
+    display: block;
+    font-size: 12px;
+    text-decoration: none;
+    color: #707070;
+}
+
+
+
+.header{
+    width: 100%;
+    height: 56px;
+    background: #2874f0;
+}
+.subHeader{
+    max-width: 1100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;   
+    align-items: center;
+}
+
+.logo{
+    width: 137px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.logo .logoimage{
+    width: 75px;
+}
+.exploreText{ 
+    font-size: 10px;
+    font-style: italic; 
+}
+.plusText{ 
+    font-size: 10px; 
+    margin: 0 2px; 
+    text-transform: capitalize;
+    font-style: italic;
+    color: yellow;
+  }
+.logo .goldenStar{
+    width: 10px;
+    height: 10px;
+}
+
+.searchInputContainer {
+    width: 560px;
+    position: relative;
+    background: #fff;
+    height: 36px;
+    border-radius: 1px;
+    overflow: hidden;
+    display: flex;
+  }
+.searchInput {
+    width: 518px;
+    border: 0;
+    height: 36px;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+.searchIconContainer {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  .rightMenu{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+.loginButton {
+    display: flex;
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    text-align: center;
+    line-height: 30px;
+    color: #222;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+  }
+.more, .fullName {
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    cursor: pointer;
+  }
+.cart {
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px
+  }
+
+.authContainer{
+  color: #212121;
+  margin: 0 auto;
+  border-radius: 2px;
+  height: 500px;
+  max-width: 500px;
+  min-width: 500px;
+  padding: 32px 32px;
+}
+.row{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  height: 528px;
+    max-width: 750px;
+    min-width: 650px;
+}
+
+.leftspace{
+  width: 40%;
+  height: 100%;
+  color: #fff;
+  letter-spacing: 1px;
+  /* background-image: url('../../images/login-image.png'); */
+  background-color: #faf9f8;
+  background-repeat: no-repeat;
+  background-position: center 85%;
+  padding: 40px 33px;
+  box-sizing: border-box;
+}
+
+.rightspace{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginInputContainer{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30px;
+  margin: 40px 0;
+}

@@ -38,3 +38,12 @@
 .activeBg{
     background-color: #f4eddd;
 }
+.desc{
+    margin: 0;
+    color: #333;
+}
+.price{
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}

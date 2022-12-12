@@ -49,3 +49,23 @@
     background-color: #fff;
     /* text-align: center; */
 }
+.formInput{
+    font-size: 16px;
+    height: 48px;
+    border: 1px solid #d0d0d0;
+    width: 100%;
+    font-family: HM Sans Regular;
+    padding: 8px;
+}
+.label{
+    font-family: HM Sans Regular;
+    font-size: 13px;
+}
+.error{
+    font-family: HM Sans Regular;
+    font-size: 13px;
+    color: red;
+}
+.sbtBtn:hover{
+    background: #555 !important;
+}

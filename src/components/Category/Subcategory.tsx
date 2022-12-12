@@ -7,8 +7,8 @@ interface Iprops{
     data: any
 }
 
-interface Categorry{
-    CatName: string,
+interface Category{
+    name: string,
     CategoriesArray: []
 }
 
@@ -18,10 +18,10 @@ const Subcategory:FC<Iprops> = (props:Iprops) => {
   return (
     <div className={style.subCategoryHeader}>
         <div className={style.singleList}>
-        {props.data?.map((single: Categorry, index:number) => {
+        {props.data?.map((single: Category, index:number) => {
             return(
                 <div style={{paddingRight: '15px'}} key={index}>
-                <p style={{fontSize: '13px', fontWeight: '600'}}>{single.CatName}</p>
+                <p style={{fontSize: '13px', fontWeight: '600'}}>{single.name}</p>
                 <SuperSubCategory data={single.CategoriesArray}/>
                 </div>
             )

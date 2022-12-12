@@ -1,22 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import product from '../../pages/Product/product.module.css'
 
 interface IProps {
   data: any;
 }
 const SingleProduct: React.FC<IProps> = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <Link to={`productDetail?code=${data._id}`} style={{ marginBottom: "20px" }}>
       <div className={product.imgSec}>
       <img
-        src={data.defaultArticle?.images[0].url}
-        alt={data.defaultArticle.name}
+        src={data?.productImages[0]?.img}
+        alt={data.name}
         onMouseOver={(e) =>
-          (e.currentTarget.src = data.defaultArticle.logoPicture[0].url)
+          (e.currentTarget.src = data.productImages[1].img)
         }
         onMouseOut={(e) =>
-          (e.currentTarget.src = data.defaultArticle.images[0].url)
+          (e.currentTarget.src = data.productImages[0].img)
         }
         style={{ width: "100%" }}
       />
@@ -32,9 +33,9 @@ const SingleProduct: React.FC<IProps> = ({ data }) => {
         
       </button>
       </div>
-      <p>{data.defaultArticle.name}</p>
-      <p>{data.price.formattedValue}</p>
-      <div style={{display: 'flex', marginTop: '4px'}}>
+      <p className={product.desc}>{data.name}</p>
+      <p className={product.price}>{`Rs.${data.price}`}</p>
+      {/* <div style={{display: 'flex', marginTop: '4px'}}>
         {data.rgbColors.map((e: any, i: any) => {
           return (
             <div key={i}>
@@ -42,9 +43,9 @@ const SingleProduct: React.FC<IProps> = ({ data }) => {
             </div>
           );
         })}
-      </div>
+      </div> */}
       {/* <span>{data.sellingAttributes[0]}</span> */}
-    </div>
+    </Link>
   );
 };
 
