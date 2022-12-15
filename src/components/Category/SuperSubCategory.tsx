@@ -11,9 +11,9 @@ interface sub{
 const SuperSubCategory:FC<Sprops> = (props: Sprops) => {
   return (
     <div className={style.superSubHeader}>
-        {props.data?.map((e:sub) => {
+        {props.data?.map((e:sub, i) => {
             return(
-                <p style={{fontSize: '12px', padding: '4px 0'}}>{e.CatName}</p>
+                <p style={{fontSize: '12px', padding: '4px 0'}} key={i}>{e.CatName}</p>
             )
         })
 

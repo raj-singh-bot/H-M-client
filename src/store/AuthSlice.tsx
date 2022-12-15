@@ -13,17 +13,16 @@ export const userLogin = createAsyncThunk('user/userLogin', async (data:any) =>{
     }
 })
 
-
-// function userAuth(state:any, action:any) {
-//     state.status = 'success'
-//             // state.user = action.payload
-//             state.authenticate = true
-//     state.user(action.payload);
-// }
-// export const resetAction=createAction("lists/reset")
+export const signout = () =>{
+    return async (dispatch:any) => {
+    localStorage.clear()
+    dispatch(userLoggedOut())
+    }
+}
 
 
 export const userLogged = createAction<any>("user/loggedUser")
+export const userLoggedOut = createAction('SOME_ACTION_TYPE')
 
 const AuthSlice = createSlice({
     name: 'auth',
@@ -33,16 +32,7 @@ const AuthSlice = createSlice({
         status: 'idle'
     },
     reducers: {
-        // setUser: (state, payload) => {
-        //     state.status = 'success'
-        //     state.user = payload
-        //     state.authenticate = true
-        // }
-        // switch(action.type){
-        // case actionCreator.type: {
-           
-        //   }
-        // }
+        
     },
     extraReducers(builder){
         builder
@@ -63,7 +53,11 @@ const AuthSlice = createSlice({
             state.status = 'success'    
             state.user = action.payload
             state.authenticate = true
-        });
+        })
+        .addCase(userLoggedOut, (state, action) => {
+            state.status = 'success'
+            // ...initState
+        })
     }
 })
 
@@ -85,9 +79,7 @@ export const isUserLoggedIn = () => {
   };
   
 
-export const getAuth = (state:any) => state.auth;
-export default AuthSlice.reducer;
-// function setUser(): any {
-//     throw new Error('Function not implemented.');
-// }
+  export const getAuth = (state:any) => state.auth;
+  export default AuthSlice.reducer;
+
 

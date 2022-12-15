@@ -29,9 +29,9 @@ const FilterSlider = () => {
         <p className={slider.heading}>New Arrivals</p>
         <div>
             <ul className={slider.listItem}>
-                {category.map((e) => {
+                {category.map((e, i) => {
                     return(
-                        <li onClick={() => {setCurrentCat(e); setActive(e)}} className={active == e ? `${slider.active}` : ''} >{e}</li>
+                        <li onClick={() => {setCurrentCat(e); setActive(e)}} className={active == e ? `${slider.active}` : ''} key={i} >{e}</li>
                     )
                 })
                 }
@@ -39,9 +39,9 @@ const FilterSlider = () => {
         </div>
     <Slider {...settings}>
         {        //@ts-ignore
-        filterSliderData[currentCat].map((e: any) => {
+        filterSliderData[currentCat].map((e: any, i) => {
             return(
-                <div className={slider.filterSlider} >
+                <div className={slider.filterSlider} key={i} >
                 <img src={e.image} alt='img' style={{width: '100%'}}/>
                 <p>{e.desc}</p>
                 <span>{e.price}</span>

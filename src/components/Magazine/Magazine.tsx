@@ -25,9 +25,9 @@ const Magazine = () => {
             <a href='#'>READ H&M MAGAZINE</a>
         </div>
         <div className={magazine.magList}>
-            {magData.map((e) => {
+            {magData.map((e, i) => {
                 return(
-                    <div className={magazine.content}>
+                    <div className={magazine.content} key={i}>
                         <img src={e.image} alt='magazine' style={{width: '100%', display: 'block'}}/>
                         <div className={magazine.subContent}>
                             <div>

@@ -1,0 +1,18 @@
+.singleItem{
+    width: 100%;
+    display: flex;
+    margin-bottom: 48px;
+}
+.itemLeft{
+    width: 20%;
+    margin-right: 24px;
+}
+.itemRight{
+    width: 80%;
+    position: relative;
+    font-family: HM Sans Regular;
+    font-size: .8rem;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    
+}

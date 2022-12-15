@@ -12,6 +12,7 @@ import  { AppDispatch } from './store/store';
 import ProductDetail from './pages/productDetailPage/ProductDetail';
 import MenuHeader from './components/Navbar/MenuCategory';
 import { isUserLoggedIn } from './store/AuthSlice';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -26,9 +27,9 @@ function App() {
   return (
     <>
     {/* <CategoryNavbar/> */}
+        <Router>
     <Navbar/>
     <MenuHeader/>
-        <Router>
           <Routes>
             <Route path='/'  element={<Home/>}/>
           </Routes>
@@ -36,7 +37,10 @@ function App() {
             <Route path='/products/' element={<ProductPage/>}/>
           </Routes>
           <Routes>
-            <Route path='products/productDetail' element={<ProductDetail/>}/>
+            <Route path='/products/productDetail' element={<ProductDetail/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/cart' element={<Cart/>}/>
           </Routes>
         </Router>
         <Footer/>

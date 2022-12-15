@@ -20,9 +20,9 @@ const SliderCom = () => {
     <div className={slider.mainSlider}>
         <p className={slider.heading}>Categories you might like</p>
     <Slider {...settings}>
-        {sliderData.map((e) => {
+        {sliderData.map((e,i) => {
             return(
-                <Link to={`products?category=${e.tagCodes}`} className={slider.sliderLink}>
+                <Link to={`products?category=${e.tagCodes}`} className={slider.sliderLink} key={i}>
                 <div className={slider.singleSlider}>
                     <img src={e.image} alt='img' style={{width: '100px', borderRadius: '50%'}}/>
                     <p>{e.category}</p>

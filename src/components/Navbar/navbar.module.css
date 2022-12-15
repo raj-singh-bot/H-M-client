@@ -10,6 +10,10 @@
 .navbar ul li{
     padding: 6px 8px;
     display: flex;
+    align-items: center;
+}
+.navbar ul li a{
+    display: flex;
 }
 .navbar ul li svg{
     width: 20px;
@@ -68,4 +72,7 @@
 }
 .sbtBtn:hover{
     background: #555 !important;
+}
+.navbarRight li{
+    cursor: pointer;
 }
