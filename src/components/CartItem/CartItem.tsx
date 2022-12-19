@@ -28,9 +28,9 @@ const CartItem = (props:any) => {
     const auth = useSelector(getAuth);
     const dispatch = useDispatch<AppDispatch>()
     
-    useEffect(() => {
-        console.log(current.value)
-    }, [current])
+    // useEffect(() => {
+    //     console.log(current.value)
+    // }, [current])
 
 
     const handleChange = (e:any) => {

@@ -11,6 +11,7 @@
 }
 .cartContainer{
     display: flex;
+    padding-bottom: 20px;
 }
 .cartLeft{
     margin-right: 24px;
@@ -18,12 +19,25 @@
 }
 .cartRight{
     width: 30%;
+    background-color: #fff;
+    box-shadow: 0px 0px 7px 0px #0000002b;
+    padding: 20px;
+    font-family: HM Sans Regular;
+}
+.addBtn{
+    border: 1px solid #222;
+    height: 48px;
+    width: 80px;
+}
+.formConrol{
+    height: 48px;
+    border: 1px solid #222;
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
     .cartLeft{
-        width: 60%;
+        width: 55%;
     }
     .cartRight{
-        width: 40%;
+        width: 45%;
     }
 }

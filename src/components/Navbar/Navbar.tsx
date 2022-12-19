@@ -61,6 +61,7 @@ const Navbar = () => {
         My account
           </p>}
         menus={[
+          { label: "My Orders", href: "/orders", icon: null },
           { label: "My account", href: "", icon: null },
           { label: "Membership info", href: "", icon: null },
           { label: "Logout", href: "", icon: null, onClick: logout },

@@ -1,0 +1,96 @@
+.checkOutLeft{
+    margin-right: 24px;
+    width: 70%;
+    font-family: HM Sans Regular;
+}
+.checkOutRight{
+    width: 30%;
+    font-family: HM Sans Regular;
+}
+.boxContainer{
+    padding: 40px 40px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+/* .addressDetails span{
+    margin-right: 10px;
+} */
+.addressinfo{
+    padding-left: 15px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.addressDetail{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Roboto';
+    font-size: 12px;
+    color: #333;
+}
+.addressContainer{
+    box-sizing: border-box;
+    padding: 20px;
+    background: #f5faff;
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+}
+.addressType{
+    display: inline-block;
+    margin: 0 10px;
+    text-transform: uppercase;
+    background: #eee;
+    font-weight: 500;
+    padding: 1px 5px;
+    font-size: 10px;
+    border-radius: 2px;
+    color: #777777;
+}
+.fullAddress{
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 18px;
+}
+.formRow{
+    display: flex;
+    width: 100%;
+}
+.textArea{
+    width: 100%;
+    border: 1px solid #222;
+    padding: 8px;
+    /* margin: 0 8px 8px 0; */
+    font-size: 13px;
+}
+.formControl{
+    height: 48px;
+    border: 1px solid #222;
+    padding: 8px;
+    width: 100%;
+    font-size: 13px;
+}
+.formColumn{
+    margin: 0 8px 8px 0;
+    width: 100%;
+}
+.cmnbtn{
+    background-color: #222;
+    color: #fff;
+    padding: 12px;
+    font-size: 12px;
+}
+.address{
+    padding-bottom: 20px;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .checkOutLeft{
+        width: 55%;
+    }
+    .checkOutRight{
+        width: 45%;
+    }
+}

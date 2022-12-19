@@ -13,6 +13,10 @@ import ProductDetail from './pages/productDetailPage/ProductDetail';
 import MenuHeader from './components/Navbar/MenuCategory';
 import { isUserLoggedIn } from './store/AuthSlice';
 import Cart from './pages/Cart/Cart';
+import { addToCart, getCartItem, updateCart } from './store/CartSlice';
+import Checkout from './pages/Checkout/Checkout';
+import OrderDetails from './pages/OrderDetails/OrderDetails';
+import Order from './pages/OrdersPage/Order';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -23,6 +27,27 @@ function App() {
       dispatch(isUserLoggedIn());
     }
   }, [auth.authenticate]);
+
+  useEffect(() => {
+    let cartItems = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")!) : [];
+    console.log(cartItems)
+    if(auth.authenticate == true){
+      const payload = {
+        cartItems: Object.keys(cartItems).map((key, index) => {
+          return {
+            quantity: cartItems[key].quantity,
+            product: cartItems[key].product,
+          };
+        })
+      }
+      localStorage.removeItem('cart')
+      console.log(payload)
+      if(Object.keys(cartItems).length > 0){
+        dispatch(addToCart(payload))
+      }
+    }
+    dispatch(getCartItem())
+  },[auth.authenticate])
 
   return (
     <>
@@ -41,6 +66,15 @@ function App() {
           </Routes>
           <Routes>
             <Route path='/cart' element={<Cart/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/checkout' element={<Checkout/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/orders' element={<Order/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/order_details/:orderId' element={<OrderDetails/>}/>
           </Routes>
         </Router>
         <Footer/>

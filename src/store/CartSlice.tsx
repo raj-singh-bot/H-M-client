@@ -1,4 +1,5 @@
 import {createAction, createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
+import userEvent from '@testing-library/user-event';
 import { rejects } from 'assert';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -18,9 +19,11 @@ export const getCartItem = createAsyncThunk('cart/getCartItem', async() => {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         });
+        // console.log(response.data)
         return response.data;
-    } catch (err) {
+    } catch (err:any) {
         console.error(err)
+        // return err.response.data.msg
     }
 })
 
@@ -63,6 +66,11 @@ export const removeCartItem = createAsyncThunk('cart/removeCartItem', async (pay
     }
 })
 
+export const updateCart = (payload:any) => {
+
+    console.log(payload)
+}
+
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
@@ -73,31 +81,45 @@ const cartSlice = createSlice({
     },
 
     reducers: {
-        // addToCart(){
-
-        // }
+        addCart: (state:any,action) =>{
+            console.log(action.payload.payload)
+            // console.log(state.cartItems.product)
+            const itemInCart = state.cartItems.product == action.payload.payload.cartItems.product;
+            console.log(itemInCart)
+            if (itemInCart) {
+                console.log('aaa')
+                state.cartItems = action.payload.payload.cartItems.quantity++
+            } else {
+                state.cartItems = action.payload.payload
+            }
+        }
     },
     extraReducers(builder){
         builder.addCase(addToCart.pending, (state, action) => {
             state.updatingCart = true
         })
         .addCase(addToCart.fulfilled, (state, action) => {
-            // state.cartItems = action.payload.cartItems
+            console.log(state.cartItems)
+            console.log(action.payload)
+            state.cartItems = Object.assign(state.cartItems, action.payload.cart)
             state.updatingCart = false
         })
         .addCase(addToCart.rejected, (state, action) => {
             // console
             state.updatingCart = false
         })
-        .addCase(getCartItem.pending, (state, action) => {
+        .addCase(getCartItem.pending, (state, action:any) => {
+            // console.log(action)
             state.status = 'loading'
+            state.error = action.payload
         })
         .addCase(getCartItem.fulfilled, (state,action) => {
             state.cartItems = action.payload.cartItems
             state.status = 'success'
         })
-        .addCase(getCartItem.rejected, (state, action) => {
+        .addCase(getCartItem.rejected, (state, action:any) => {
             state.status = 'rejected'
+            state.error = action.payload.msg
         })
         .addCase(removeCartItem.pending, (state, action) => {
             state.status = 'loading'
@@ -114,6 +136,6 @@ const cartSlice = createSlice({
 
 export const getCartItems = (state:any) => state.cart;
 export default cartSlice.reducer;
-
+export const {addCart}  = cartSlice.actions
 
 // export {getCartItems}

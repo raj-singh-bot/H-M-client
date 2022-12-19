@@ -7,6 +7,7 @@ export const userLogin = createAsyncThunk('user/userLogin', async (data:any) =>{
         const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, data);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", (response.data._id));
+        localStorage.setItem('userEmail', response.data.email)
         return response.data;
     } catch (err) {
         console.error(err)
@@ -55,8 +56,10 @@ const AuthSlice = createSlice({
             state.authenticate = true
         })
         .addCase(userLoggedOut, (state, action) => {
-            state.status = 'success'
+            state.authenticate = false
+            // return initialState
             // ...initState
+            
         })
     }
 })
@@ -66,7 +69,8 @@ export const isUserLoggedIn = () => {
       const token = localStorage.getItem("token");
       if (token) {
         const user = localStorage.getItem("user")
-        let data = {token, user}
+        const email = localStorage.getItem('userEmail')
+        let data = {token, user, email}
         dispatch(userLogged(data));
       }     
     // else {

@@ -1,0 +1,21 @@
+.orderImgContainer{
+    width: 10%;
+}
+.orderRow{
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    align-items: center;
+    font-size: 16px;
+}
+/* .orderRow {
+
+} */
+.heading{
+    line-height: 1.2;
+    font-size: 2.5rem;
+    padding: 32px;
+    font-weight: 600;
+    font-family: HM Sans Regular;
+    text-align: center;
+}

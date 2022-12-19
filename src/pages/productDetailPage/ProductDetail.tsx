@@ -8,7 +8,7 @@ import { AppDispatch } from '../../store/store';
 import { useBeforeunload } from 'react-beforeunload';
 import { addToCart, getCartItems } from '../../store/CartSlice';
 import { getAuth } from '../../store/AuthSlice';
-
+import { addCart } from '../../store/CartSlice';
 
 
 const ProductDetail = () => {
@@ -32,7 +32,7 @@ const ProductDetail = () => {
     const handleClick = () => {
         console.log(cartItems)
         console.log(auth)
-        const qty = cartItems[products._id] ? parseInt(cartItems[products._id].quantity + 1) : 1;
+        const qty = cartItems[products._id] ? parseInt(cartItems[products._id].qty + 1) : 1;
         console.log(qty)
         // cartItems[products._id] = {
         //     ...products,
@@ -52,7 +52,7 @@ const ProductDetail = () => {
         }else{
             if(localStorage.getItem('cart')){
                 let cart = JSON.parse(localStorage.getItem('cart')!)
-                console.log(cart)
+                
                 if(cart.cartItems.product == products._id){
                     localStorage.setItem("cart", JSON.stringify({cartItems: 
                         {
@@ -60,18 +60,21 @@ const ProductDetail = () => {
                         quantity: cart.cartItems.quantity + 1,
                         },}));
                 }
-                // console.log(product)
-                // localStorage.setItem('cart', JSON.stringify(product))
-                
             }else{
                 localStorage.setItem("cart", JSON.stringify({cartItems: 
                     {
                     product: products._id,
                     quantity: qty,
                     },}));
+                    
             }
+            dispatch(addCart({payload: { cartItems: 
+                {
+                product: products._id,
+                quantity: qty,
+                } },}));
         }
-        // console.log("addToCart:", cartItems);
+        console.log("addToCart:", cartItems);
     }
     
   return (
